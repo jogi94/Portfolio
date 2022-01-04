@@ -1,0 +1,187 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+a.back-to-top {
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
+    text-decoration: none;
+    padding: 7px 15px;
+    border: 3px solid #fc0d36;
+    font-size: 2rem;
+    border-radius: 50%;
+    color: #fc0d36;
+    z-index: 9999;
+}a.back-to-top:hover {
+    color: #fc0d36;	
+}
+
+.home-section{
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    /*height: 95vh;*/
+}
+a.nav-link {
+		color: #000 !important;
+		font-weight: 500;
+		margin: 0 5px;
+}
+
+.home span.free{
+    letter-spacing: 4px;
+    background: linear-gradient(120deg, #1C99FE 20.69%, #7644FF 50.19%, #fd4766 79.69%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}.home span.free,.about span.free,.hire span.free,.meeting span.free,.project span.free,.performance span.free {
+
+    background: linear-gradient(120deg, #1C99FE 20.69%, #7644FF 50.19%, #fd4766 79.69%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home h1{
+    color: #1f1f25;
+    font-size: 75px;
+    font-weight: 900;}
+    .about h1 ,.hire h1 ,.meeting h1,.project h1 ,.performance h1{
+    color: #1f1f25;
+    font-size: 50px;
+    font-weight: 700;}
+
+    .home h1 span {
+    color: #fd4766;
+  }
+
+  .port-btn {
+    background: #fd4766;
+    color: #fff;
+    font-weight: 500;
+}  
+.port-btn:hover {
+    border:2px solid #fd4766;
+    color: #fd4766;
+    background: transparent;
+}
+
+.brand-items{
+	list-style-type: none;
+}
+
+ul.brand-items li.brand-item {
+    padding: 25px;
+    flex-basis: 20%;
+    text-align: center;
+}
+
+ul .brand-item img {
+    opacity: 0.8;
+    transition: 0.3s;
+    max-height: 110px;
+    max-width: 150px;
+    filter: grayscale(1);
+    cursor: pointer;
+}
+ul .brand-item img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: grayscale(0);
+}
+
+.perfom{
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.perfom li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.perfom li i.icon {
+    color: #fd4766;
+    margin-right: 1rem;
+}
+.card {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.65s cubic-bezier(0.05, 0.2, 0.1, 1), box-shadow 0.65s cubic-bezier(0.05, 0.2, 0.1, 1);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 55px rgb(253 71 102 / 22%);
+}
+
+.started-section{
+	    background: #fd4766;
+	    color: #fff;
+}
+
+  .port-btn-2 {
+    background: #fd4766;
+    color: #fff;
+    font-weight: 500;
+    border: 1px solid #fff;
+}  
+.port-btn-2:hover {
+    border:2px solid #fd4766;
+    color: #fd4766;
+    background: #fff;
+}
+button.btn ,.home-section .nav-link,.social-medai-link .icon {
+    transition: all 0.5s ease;
+}
+.home-section .btn-outline-dark:hover,.footer .icon:hover{
+    background: #fd4766;
+    color: #fff !important;
+    border: 2px solid #fd4766 !important;
+}
+
+.home-section .nav-link:hover,.home-section .social-medai-link .icon:hover{
+    color: #fd4766 !important;
+}
+
+.footer .icon i.fab {
+    width: 26px;
+    text-align: center;
+    height: 50px;
+}
+
+button.btn.btn-outline-dark{
+	font-weight: 500;
+}
+.home-section ul.dropdown-menu {
+    min-width: 250px;
+}.home-section ul.dropdown-menu .dropdown-item:focus, .dropdown-item:hover {
+    color: #fd4766 !important;
+    background-color: rgba(249, 0, 77, 0.07) !important;
+}
+
+@media screen and (max-width: 767px) {
+button.btn.btn-outline-dark {
+    padding: 7px 15px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .home h1 {
+    font-size: 50px;
+}
+
+span.free {
+    font-size: 14px;
+}
+p.description {
+    font-size: 18px !important;
+}
+.about h1 ,.hire h1 ,.meeting h1,.project h1 ,.performance h1{
+    font-size: 35px;
+}
+
+ul .brand-item img {
+    max-width: 75px;
+}
+    } 

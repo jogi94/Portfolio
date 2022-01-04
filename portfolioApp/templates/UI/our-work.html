@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h3 class="text-center">Our Work</h3>
+<div class="row justify-content-center mt-4">
+					{% for projects in projectInst %}
+					<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+						<a href="{{projects.get_absolute_url}}">
+						{% if projects.project_name %}
+						<div class="card bg-dark mb-4 text-white border-0">
+							{% if projects.project_image %}<img src="{{projects.project_image.url}}" class="card-img" alt="...">{% endif %}
+							<div class="text-center mb-5 position-absolute w-100 bottom-0 start-50 translate-middle-x">
+								{% if projects.project_subtitle %}<h5 class="text-muted">{{projects.project_subtitle}}</h5>{% endif %}
+								{% if projects.project_name %}<h2 class="fw-bold">{{projects.project_name}}</h2>{% endif %}
+							</div>
+							{% endif %}
+						</div>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+
+{% endblock %}

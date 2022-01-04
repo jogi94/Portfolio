@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+<style type="text/css">
+	  .port-btn {
+    background: #fd4766;
+    color: #fff;
+    font-weight: 500;
+}  
+</style>
+			<!---------------Home Start--------------------->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="home py-5 my-5 ">
+							{% if portfolioPageInfo.our_profession %}<span class="free text-uppercase">FREELANCE DIGITAL DESIGNER</span>{% endif %}
+							{% if portfolioPageInfo.our_name %}<h1 class="my-4">{{portfolioPageInfo.our_name}}</h1>{% endif %}
+							{% if portfolioPageInfo.subtitle %}<p class="description col-md-6 fs-5 text-muted">{{portfolioPageInfo.subtitle}}</p>{% endif %}
+							{% if portfolioPageInfo.download_cv_file %}<a class="btn port-btn fs-6 border-x2 px-5 my-4 py-3 text-uppercase rounded-pill" href='{{portfolioPageInfo.download_cv_file.url}}' target="_blank">{% if portfolioPageInfo.download_cv_button %}{{portfolioPageInfo.download_cv_button}}{% endif %}</a>{% endif %}
+						
+							<button class="btn port-btn fs-6 border-x2 px-5 my-4 py-3 text-uppercase rounded-pill" formType="phone" title="Talk To Our Industry Experts. " content="content 1" generatedFrom="Number Only" onclick="popmodal(this)" industry="custom">Contact Now</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!---------------Home End--------------------->
+		</div>
+	</header>
+		<!---------------About-Section Start--------------------->
+		<div class="about-section my-5"  data-aos="fade-up" id="aboutScroll">
+			<div class="container">
+				<div class="row my-5 align-items-center">
+					<div class="col-lg-5">
+						{% if portfolioPageInfo.about_image %}
+						<div class="thumbnail my-5">
+							<img src="{{portfolioPageInfo.about_image.url}}" class="rounded w-100 img-fluid" alt="modal">
+						</div>
+						{% endif %}
+					</div>					
+					<div class="col-lg-7">
+						<div class="about">
+							{% if portfolioPageInfo.about_subtitle %}<span class="free  fw-bold">{{portfolioPageInfo.about_subtitle}}</span>{% endif %}
+							{% if portfolioPageInfo.about_heading %}<h1 class="my-3">{{portfolioPageInfo.about_heading}}</h1>{% endif %}
+							{% if portfolioPageInfo.about_content %}<p class="description fs-5 my-5 text-muted">{{ portfolioPageInfo.about_content|safe }}</p>{% endif %}
+
+							<div class="row">
+								{% for education  in educationalSkills %}
+								<div class="col-lg-6 mb-2 col-md-12">
+									{% if education.heading %} <h5>{{education.heading}}</h5>{% endif %}
+									{% if education.subtitle %}<p class="text-muted fs-5">{{education.subtitle}}</p>{% endif %}
+								</div>
+								{% endfor %}							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!---------------About-Section End--------------------->
+		<!---------------Meeting-Section Start--------------------->
+		<div class="meeting-section my-5"  data-aos="fade-up">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="meeting text-center py-5">
+						{% if portfolioPageInfo.client_heading %}<span class="free  fw-bold">{{ portfolioPageInfo.client_heading }}</span>{% endif %}
+						{% if portfolioPageInfo.client_subtitle %}<h1 class="my-3">{{portfolioPageInfo.client_subtitle}}</h1>{% endif %}
+						
+						{% if portfolioPageInfo.client_video_file %}
+						<div class="col-md-10 shadow mx-auto">
+							<div class="plyr__video-embed  " id="player" style="height: 0; padding-bottom: 42.25%;">
+								<video  controls crossorigin playsinline poster="" class="w-100" id="player">
+									<source src="{% if portfolioPageInfo.client_video_file %}{{portfolioPageInfo.client_video_file.url}}{% endif %}" type="video/mp4" />
+									<a href="path/to/video" download>Download</a>
+								</video>
+							</div>
+						</div>
+						{% elif portfolioPageInfo.client_video_id %}
+						<div class="col-md-10 shadow mx-auto">
+							<div class="plyr__video-embed  " id="player">
+								<iframe width="560" height="315" src="{% if portfolioPageInfo.client_video_id %}{{portfolioPageInfo.client_video_id}}{% endif %}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							</div>
+						</div>
+						{% else %}
+						{% endif %}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="brand-items py-5 px-0 d-flex flex-wrap justify-content-center">
+							{% for clientsLogo in ourClients %}
+							{% if clientsLogo.client_logo %}<li class="brand-item"><img src="{{clientsLogo.client_logo.url}}" class="img-fluid"></li>{% endif %}
+							{% endfor %}						
+							<!-- <li class="brand-item"><img src="{% static 'img/brand-02.png' %}" class="img-fluid"></li>							
+							<li class="brand-item"><img src="{% static 'img/brand-03.png' %}" class="img-fluid"></li>							
+							<li class="brand-item"><img src="{% static 'img/brand-04.png' %}" class="img-fluid"></li>							
+							<li class="brand-item"><img src="{% static 'img/brand-05.png' %}" class="img-fluid"></li>							
+							<li class="brand-item"><img src="{% static 'img/brand-06.png' %}" class="img-fluid"></li>							
+							<li class="brand-item"><img src="{% static 'img/brand-07.png' %}" class="img-fluid"></li>							
+							<li class="brand-item"><img src="{% static 'img/brand-08.png' %}" class="img-fluid"></li>							
+							<li class="brand-item"><img src="{% static 'img/brand-09.png' %}" class="img-fluid"></li> -->
+
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!---------------Meeting-Section End--------------------->
+
+		<!---------------Performance-Section Start--------------------->
+		<div class="performance-section my-5"  data-aos="fade-up">
+			<div class="container">
+				<div class="row my-5 align-items-center">
+					<div class="col-lg-6">
+						<div class="thumbnail ">
+							{% if portfolioPageInfo.performance_image %}<img src="{{portfolioPageInfo.performance_image.url}}" class="rounde' %}d w-100 shadow img-fluid" alt="modal">{% endif %}
+						</div>
+					</div>					
+					<div class="col-lg-6">
+						<div class="performance my-5">
+							{% if portfolioPageInfo.performance_subtitle %}<span class="free  fw-bold">{{portfolioPageInfo.performance_subtitle}}</span>{% endif %}
+							{% if portfolioPageInfo.performance_heading %}<h1 class="my-3">{{portfolioPageInfo.performance_heading}}</h1>{% endif %}
+							{% if portfolioPageInfo.performance_content %}<p class="description fs-5 my-5 text-muted">{{portfolioPageInfo.performance_content|safe}}</p>{% endif %}
+
+							{% if portfolioPageInfo.performance_button %}<button class="btn port-btn fs-6 border-2 px-5 mt-3 py-3 text-uppercase rounded-pill" type="submit">{{portfolioPageInfo.performance_button}}</button>{% endif %}
+							<button class="btn port-btn fs-6 border-2 px-5 mt-3 py-3 text-uppercase rounded-pill" formType="phone" title="Talk To Our Industry Experts. " content="content 1" generatedFrom="Number Only" onclick="popmodal(this)" industry="custom">Contact Us</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>			
+		<!---------------Performance-Section End--------------------->
+		<!---------------Project-Section Start--------------------->
+		<div class="mt-5" id='projectSectionHover'>
+			
+		</div>
+		<div class="project-section my-5"  data-aos="fade-up">
+			<div class="container">
+				<div class="row">
+					<div class="project text-center ">
+						{% if portfolioPageInfo.project_sub_heading %}<span class="free  fw-bold">{{portfolioPageInfo.project_sub_heading}}</span>{% endif %}
+						{% if portfolioPageInfo.project_heading %}<h1 class="my-3">{{portfolioPageInfo.project_heading}}</h1>{% endif %}
+						{% if portfolioPageInfo.project_subtitle %}<p class="text-muted fs-5">{{portfolioPageInfo.project_subtitle}}</p>{% endif %}
+					</div>
+				</div>
+				<div class="row justify-content-center mt-4">
+					{% for projects in ourProjects %}
+					<div class="col-lg-4 col-md-6 col-sm-6 col-12">
+						<a href="{{projects.get_absolute_url}}">
+						{% if projects.project_name %}
+						<div class="card bg-dark mb-4 text-white border-0">
+							{% if projects.project_image %}<img src="{{projects.project_image.url}}" class="card-img" alt="...">{% endif %}
+							<div class="text-center mb-5 position-absolute w-100 bottom-0 start-50 translate-middle-x">
+								{% if projects.project_subtitle %}<h5 class="text-muted">{{projects.project_subtitle}}</h5>{% endif %}
+								{% if projects.project_name %}<h2 class="fw-bold">{{projects.project_name}}</h2>{% endif %}
+							</div>
+							{% endif %}
+						</div>
+						</a>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="text-center">
+					{% if portfolioPageInfo.project_button %}<a class="btn port-btn fs-6 border-2 px-5  py-3 text-uppercase rounded-pill" href="{% url 'portfolioApp:ourWorkUrl' %}">{{portfolioPageInfo.project_button}}<a/>{% endif %}
+				</div>			
+			</div>
+		</div>
+		<!---------------Project-Section End--------------------->
+		<!---------------Hire-Section Start--------------------->
+		<div class="hire-section my-5"  data-aos="fade-up" id="contactHover">
+			<div class="container">
+				<div class="row my-5 align-items-center">
+
+					<div class="col-lg-6 order-2 order-lg-1">
+						<div class="hire mt-4">
+							{% if portfolioPageInfo.contact_heading %}<span class="free fw-bold">{{portfolioPageInfo.contact_heading}}</span>{% endif %}
+							{% if portfolioPageInfo.contact_sub_heading %}<h1 class="my-3">{{portfolioPageInfo.contact_sub_heading}}</h1>{% endif %}
+							<div >
+								<ul class="perfom">
+									{% if basicInfo.contactNumber %}<li>{% if portfolioPageInfo.call_number_heading %}{{portfolioPageInfo.call_number_heading}}{% endif %}<span class="fw-bold ms-2">+{{basicInfo.contactNumber}}</span></li>{% endif %}
+									{% if basicInfo.email %}<li>{% if portfolioPageInfo.email_heading %}{{portfolioPageInfo.email_heading}}{% endif %}<span class="fw-bold ms-3">{{basicInfo.email}}</span></li>{% endif %}
+								</ul>
+							</div>
+
+							<div class="row">
+								<div class="col-md-10 offset-md-1 mt-4">
+									<form method="POST" enctype="multipart/form-data" action="{% url 'portfolioApp:contactFormUrl' %}">
+									{% csrf_token %}
+									<input type="hidden" name="redirectTo" value="{{request.get_full_path}}">
+									<input type="hidden" name="generatedFrom" value='Contact Form'>
+										<div class="form-floating mb-3">
+											<input type="text" class="form-control border-0 bg-light" name="name" id="id_name" placeholder="Your Name" required>
+											<label  for="id_name">Your Name</label>
+										</div>	
+										<div class="form-floating mb-3">
+											<input type="text" class="form-control border-0 bg-light" name="phone_number" id="id_phone_number" placeholder="Your Phone Number" title="Kindly enter 10 digits" pattern="[1-9]{1,1}[0-9]{9,9}" required>
+											<label  for="id_phone_number">Your Phone Number</label>
+										</div> 	 						
+										<div class="form-floating mb-3">
+											<input type="email" class="form-control border-0 bg-light" name="address" id="id_address" placeholder="name@example.com">
+											<label for="id_address">Email address</label>
+										</div>							
+										<div class="form-floating mb-3">
+											<textarea class="form-control border-0 bg-light" name="message" placeholder="Leave a comment here" id="id_message" style="height: 100px"></textarea>
+											<label for="id_message">Your Message</label>
+										</div>							
+										<div class="col-md-12 mb-3">
+											{% if portfolioPageInfo.contact_button %}<button type="submit" class="btn port-btn fs-6 border-2 px-5 py-3 text-uppercase rounded-pill">{{portfolioPageInfo.contact_button}}</button>{% endif %}
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>					
+					<div class="col-lg-6 order-1 order-lg-2">
+						<div class="thumbnail">
+							{% if portfolioPageInfo.contact_image %}<img src="{{portfolioPageInfo.contact_image.url}}" class="rounded img-fluid" alt="modal">{% endif %}
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<!---------------Hire-Section End--------------------->
+
+		<!---------------Started-Section Start--------------------->
+		<div class="started-section mt-5 py-5" >
+			<div class="container text-center py-5">
+				{% if portfolioPageInfo.page_end_title %}<h1>{{portfolioPageInfo.page_end_title}}</h1>{% endif %}
+				{% if portfolioPageInfo.page_last_button %}<button class="btn port-btn fs-6 border-2 px-5 py-3 text-uppercase bg-dark rounded-pill" formType="phone" title="Connect With Me. " content="content 1" generatedFrom="Number Only" onclick="popmodal(this)" industry="custom">{{portfolioPageInfo.page_last_button}}</button>{% endif %}
+			</div>
+		</div>
+		{{messageSuccess}}
+		<!---------------Started-Section End--------------------->
+{% endblock %}

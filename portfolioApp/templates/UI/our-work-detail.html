@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<div class="text-center">
+	{% if workInst.project_name %}<h3>Explore {{workInst.project_name}}</h3>{% endif %}
+
+	<div class="row">
+		{% for inst in videoInst %}
+		<div class="p-4 col-4">
+			
+			{% if inst.video_id %}
+			 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ inst.video_id}}" allowfullscreen></iframe>
+		    {% elif inst.video_file %}
+		    <video  width="320" height="240" controls>
+		  		<source src="{{inst.video_file.url}}" type="video/mp4">
+		  		<source src="movie.ogg" type="video/ogg">
+			</video>
+			{% endif %}
+
+			{% if inst.title %}<h5>{{inst.title}}</h5>{% endif %}
+			{% if inst.description %}<div>{{inst.description|safe}}</div>{% endif %}
+		</div>
+		{% endfor %}		
+		<!-- <div class="p-4 col">
+			<video></video>
+			<h5>title</h5>
+			<p>
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>		
+		<div class="p-4 col">
+			<video></video>
+			<h5>title</h5>
+			<p>
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div> -->
+	</div>
+</div>
+
+
+{% endblock %}
